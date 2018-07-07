@@ -135,9 +135,9 @@ function omdbFunction() {
 
 }
 
-function randomFunction(){
-    fs.readFile("random.txt", "utf8", function (err, data1){
-        if(err){
+function randomFunction() {
+    fs.readFile("random.txt", "utf8", function (err, data1) {
+        if (err) {
             console.log(err);
         }
 
@@ -149,8 +149,18 @@ function randomFunction(){
         primary = dataArr[0];
         songName = dataArr[1];
         movieName = dataArr[1];
-        spotifyFunction();
-
+        if (primary == "spotify-this-song") {
+            spotifyFunction();
+        }
+        else if (primary == "movie-this"){
+            omdbFunction();
+        }
+        else if (primary == "my-tweets"){
+            twitterFunction();
+        }
+        else {
+            console-log ("your rnadom function is broken, please fix the random.txt file")
+        }
     })
 }
 
